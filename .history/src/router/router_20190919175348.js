@@ -44,15 +44,18 @@ export default [
         component: () => import(/* webpackChunkName: "dashbord" */ '../views/home/RecipeManager.vue')
       },
       {
-        path: '/indicator',
+        path: '/Indicator',
         name: 'indicator',
         component: () => import(/* webpackChunkName: "dashbord" */ '../views/home/Indicator.vue')
       },
-      {
-        path: '/setting',
-        name: 'setting',
-        component: () => import(/* webpackChunkName: "dashbord" */ '../views/home/Setting.vue')
-      }
     ]
+  },
+  {
+    path: '/about',
+    name: 'about',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   }
 ]
