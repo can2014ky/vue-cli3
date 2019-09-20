@@ -29,7 +29,7 @@ export default [
         component: () => import(/* webpackChunkName: "dashbord" */ '../views/home/PostProcessing.vue')
       },
       {
-        path: '/Transfer',
+        path: '/transfer',
         name: 'transfer',
         component: () => import(/* webpackChunkName: "dashbord" */ '../views/home/TransferStation.vue')
       },

@@ -1,9 +1,34 @@
 <template>
   <div class="home">
-    <header class="header">头部</header>
+    <header v-if='false' class="header">
+      <el-button type="primary" disabled>头部</el-button>
+      <el-button type="primary" disabled>主要按钮</el-button>
+      <el-button type="success" disabled>成功按钮</el-button>
+    </header>
     <div class="main">
       <div class="left">
-        <div v-for='(item, index) in tabLists' :key="index" class="tab-item">{{item}}</div>
+        <!-- <p class="title">G O S I N T</p> -->
+        <el-menu
+          class="self-el-menu"
+          default-active="/dashbord"
+          unique-opened
+          router>
+          <template v-for="(item, index) in tabList">
+            <el-submenu v-if="item.hasNode" :index="item.url" :key="index">
+              <template slot="title">
+                <span>{{item.title}}</span>
+              </template>
+              <el-menu-item-group>
+                <template v-for="(child, idx) in item.children">
+                  <el-menu-item :index="child.url" :key='idx'>{{child.title}}</el-menu-item>
+                </template>
+              </el-menu-item-group>
+            </el-submenu>
+            <el-menu-item v-else :index="item.url" :key="index">
+              <span slot="title">{{item.title}}</span>
+            </el-menu-item>
+          </template>
+        </el-menu>
       </div>
       <div class="right">
         <router-view></router-view>
@@ -16,7 +41,60 @@
 export default {
   data() {
     return {
-      tabLists: ['Dashbord', 'Pre-Processing', 'Post-Processing', 'Transfer Station', 'Ad Hoc Operations', 'Recipe Manager', 'Indicator Metrics', 'Setting']
+      tabList: [
+         {
+          hasNode: false,
+          title: 'Dashbord',
+          url: '/dashbord'
+        },
+        {
+          hasNode: false,
+          title: 'Pre-Processing',
+          url: '/pre'
+        },
+        {
+          hasNode: false,
+          title: 'Post-Processing',
+          url: '/post'
+        },
+        {
+          hasNode: false,
+          title: 'Transfer Station',
+          url: '/transfer'
+        },
+        {
+          hasNode: false,
+          title: 'Ad Hoc Operations',
+          url: '/ad'
+        },
+        {
+          hasNode: false,
+          title: 'Recipe Manager',
+          url: '/recipe'
+        },
+        {
+          hasNode: false,
+          title: 'Indicator Metrics',
+          url: '/indicator'
+        },
+        {
+          hasNode: true,
+          title: 'Setting',
+          url: '/1',
+          children: [
+            {
+              hasNode: false,
+              title: '设置一',
+              url: '/setting'
+            },
+            {
+              hasNode: false,
+              title: '设置二',
+              url: '/pre'
+            }
+          ]
+        }
+      ]
     }
   }
 }
@@ -31,12 +109,17 @@ export default {
   .main {
     display: flex;
     .left {
-      flex-basis: 200px;
-      height: calc(100vh - 80px);
-      border-right: 1px solid #ccc;
-      padding: 20px;
-      .tab-item {
-        line-height: 32px;
+      flex-basis: 240px;
+      border-right: 1px solid#e6e6e6;
+      .self-el-menu {
+        height: 100vh;
+        border-right: none;
+      }
+      .title {
+        height: 30px;
+        line-height: 30px;
+        font-size: 30px;
+        padding-left: 20px;
       }
     }
     .right {

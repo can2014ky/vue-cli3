@@ -34,3 +34,14 @@ date: 2019/9/18
 
 ### 完善vue.config.js配置文件
 该文件中，有的是开发环境需要的配置，有的是生产环境需要的配置，vue-cli3将他们参杂在一起配置了
+
+### 搭建首页及创建相关组件
+
+### 安装与按需引入 element-ui
+**安装：**
+vue add element    注意，win下要使用 winpty vue.cmd add element
+**引入：**
+import { Dialog, Menu } from 'element-ui'
+Vue.use(Dialog)
+Vue.use(Menu)
+提示：按需加载element的样式不生效，需要安装插件 install babel-plugin-component -D
