@@ -4,13 +4,16 @@
       <el-button type="primary" disabled>头部</el-button>
       <el-button type="primary" disabled>主要按钮</el-button>
       <el-button type="success" disabled>成功按钮</el-button>
+      <i class="iconfont  icon-fail"></i>
+      <i class="iconfont  icon-address"></i>
+      <i class="iconfont  icon-success"></i>
     </header>
     <div class="main">
       <div class="left">
-        <!-- <p class="title">G O S I N T</p> -->
+        <p class="title">G O S I N T</p>
         <el-menu
           class="self-el-menu"
-          default-active="/dashbord"
+          :default-active="activeIndex"
           unique-opened
           router>
           <template v-for="(item, index) in tabList">
@@ -39,8 +42,10 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
+      activeIndex: '/dashbord',
+      index: '',
       tabList: [
          {
           hasNode: false,
@@ -91,6 +96,11 @@ export default {
               hasNode: false,
               title: '设置二',
               url: '/pre'
+            },
+            {
+              hasNode: false,
+              title: '设置三',
+              url: '/indicator'
             }
           ]
         }
@@ -99,7 +109,7 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scope>
   .header {
     height: 80px;
     line-height: 80px;
@@ -108,22 +118,29 @@ export default {
   }
   .main {
     display: flex;
+    height: 100vh;
     .left {
+      max-height: 100%;
+      overflow: auto;
       flex-basis: 240px;
       border-right: 1px solid#e6e6e6;
       .self-el-menu {
-        height: 100vh;
+        max-height: calc(100% - 50px);
         border-right: none;
       }
       .title {
-        height: 30px;
-        line-height: 30px;
-        font-size: 30px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 28px;
         padding-left: 20px;
+        box-sizing: border-box;
       }
     }
     .right {
+      max-height: 100%;
+      overflow: auto;
       padding: 20px;
+      flex: 1;
     }
   }
 </style>

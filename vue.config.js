@@ -2,8 +2,7 @@ const path = require('path')
 
 const resolve = dir => path.join(__dirname, dir)
 
-// 部署地址BASE_URL？？？
-const BASE_URL = process.env.NODE_ENV === 'production' ? '/admin/' : '/'
+const BASE_URL = process.env.NODE_ENV === 'production' ? '/' : '/'
 
 module.exports = {
   publicPath: BASE_URL, // vue-cli3.3以下版本使用 baseUrl, 默认是服务器根目录'/'，部署应用包时的基本 URL;

@@ -45,3 +45,26 @@ import { Dialog, Menu } from 'element-ui'
 Vue.use(Dialog)
 Vue.use(Menu)
 提示：按需加载element的样式不生效，需要安装插件 install babel-plugin-component -D
+
+### 配置eslint
+vscode -- user -- setting.json添加如下内容：
+```
+// 配置自动修复功能
+"eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+    "language": "html",
+    "autoFix": true
+    },
+    {
+    "language": "vue",
+    "autoFix": true
+    }
+],
+// 保存自动修复
+"eslint.autoFixOnSave": true
+```
+项目的.eslintrc.js文件在extends下开启推荐检测规则"eslint:recommended"，并添加一些自己强制要求的rules
+
+### CSS样式重置-reset.css

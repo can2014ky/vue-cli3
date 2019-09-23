@@ -1,0 +1,16 @@
+{
+  // 配置保存自动修复功能
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+    "language": "html",
+    "autoFix": true
+    },
+    {
+    "language": "vue",
+    "autoFix": true
+    }
+  ],
+  "eslint.autoFixOnSave": true
+}
