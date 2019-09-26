@@ -1,5 +1,5 @@
 <template>
   <div>
-    Setting
+    <div>Welcome to GOSINT!222</div>
   </div>
 </template>

@@ -20,9 +20,12 @@ module.exports = {
     hotOnly: true, // 热更新，更改数据后，不会刷新整个页面
     proxy: {
       '/api': {
-        target: '',
-        ws: false,
-        changeOrigin: true
+        target: 'http://localhost:8080',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
       }
     }
   },

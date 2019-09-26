@@ -1,62 +1,77 @@
 // import Home from '@/views/home/Index.vue'
+import Layout from '@/layout'
 export default [
   {
     path: '/',
-    name: 'home',
-    // component: Home
-    component: () => import(/* webpackChunkName: "home" */ '../views/home/Home.vue'),
-    redirect: {name: 'hello'},
+    component: Layout,
     children: [
       {
         path: '',
-        name: 'hello',
-        component: () => import(/* webpackChunkName: "hello" */ '../views/home/components/Hello.vue')
+        name: 'home',
+        component: () => import(/* webpackChunkName: "home" */ '@/views/home'),
+        meta: {
+          name: '首页'
+        }
+      }
+    ]
+  },
+  {
+    path: '/dashbord',
+    component: Layout,
+    redirect: '/dashbord/dash1',
+    meta: {
+      name: 'dashbord'
+    },
+    children: [
+      {
+        path: 'dash1',
+        name: 'Dash1',
+        component: () => import(/* webpackChunkName: "dashbord" */ '@/views/dashbord/Dash1.vue'),
+        meta: {
+          name: 'dashbord1'
+        }
       },
       {
-        path: '/dashbord',
-        name: 'dashbord',
-        component: () => import(/* webpackChunkName: "dashbord" */ '../views/home/components/Dashbord.vue')
-      },
+        path: 'dash2',
+        name: 'Dash2',
+        component: () => import(/* webpackChunkName: "dashbord" */ '@/views/dashbord/Dash2.vue'),
+        meta: {
+          name: 'dashbord2'
+        }
+      }
+    ]
+  },
+  {
+    path: '/pre',
+    component: Layout,
+    children: [
       {
-        path: '/pre',
+        path: '',
         name: 'pre',
-        component: () => import(/* webpackChunkName: "dashbord" */ '../views/home/components/PreProcessing.vue')
-      },
+        component: () => import(/* webpackChunkName: "preProcessing" */ '@/views/preProcessing'),
+        meta: {
+          name: 'preProcessing'
+        }
+      }
+    ]
+  },
+  {
+    path: '/setting',
+    component: Layout,
+    children: [
       {
-        path: '/post',
-        name: 'post',
-        component: () => import(/* webpackChunkName: "dashbord" */ '../views/home/components/PostProcessing.vue')
-      },
-      {
-        path: '/transfer',
-        name: 'transfer',
-        component: () => import(/* webpackChunkName: "dashbord" */ '../views/home/components/TransferStation.vue')
-      },
-      {
-        path: '/ad',
-        name: 'ad',
-        component: () => import(/* webpackChunkName: "dashbord" */ '../views/home/components/AdHoc.vue')
-      },
-      {
-        path: '/recipe',
-        name: 'recipe',
-        component: () => import(/* webpackChunkName: "dashbord" */ '../views/home/components/RecipeManager.vue')
-      },
-      {
-        path: '/indicator',
-        name: 'indicator',
-        component: () => import(/* webpackChunkName: "dashbord" */ '../views/home/components/Indicator.vue')
-      },
-      {
-        path: '/setting',
+        path: '',
         name: 'setting',
-        component: () => import(/* webpackChunkName: "dashbord" */ '../views/home/components/Setting.vue')
+        component: () => import(/* webpackChunkName: "setting" */ '@/views/setting'),
+        meta: {
+          name: 'setting'
+        }
       }
     ]
   },
   {
     path: '*',
-    name: 'error',
+    name: '404',
     redirect: '/'
   }
 ]
