@@ -17,15 +17,15 @@ import 'codemirror/mode/javascript/javascript'
 // import 'codemirror/addon/lint/lint'
 // import 'codemirror/addon/lint/json-lint'
 
-import "codemirror/addon/fold/foldgutter.css"
+import 'codemirror/addon/fold/foldgutter.css'
 
 import 'codemirror/addon/fold/foldcode.js';
 
 import 'codemirror/addon/fold/foldgutter.js';
 
-import "codemirror/addon/fold/brace-fold";
+import 'codemirror/addon/fold/brace-fold';
 
-import "codemirror/addon/edit/matchbrackets.js";
+import 'codemirror/addon/edit/matchbrackets.js';
 
 
 export default {
