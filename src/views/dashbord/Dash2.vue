@@ -12,13 +12,27 @@
       <span v-html="item.name" style="color:#000;"></span>
       <span><span v-html="item.address"></span></span>
     </div>
+    <div>
+      <div>类型二：借助 vue-text-highlight 插件</div>
+      <div>
+        <TextHighlight :queries="queries">{{ description }}</TextHighlight>
+      </div>
+    </div>
+    <div>
+      <div>类型三：正则匹配</div>
+      <div v-html="str"></div>
+    </div>
   </div>
 </template>
 
 <script>
 import _ from 'lodash';
+import TextHighlight from 'vue-text-highlight';
 
 export default {
+  components: {
+    TextHighlight
+  },
   data () {
     return {
       keyword: '',
@@ -40,11 +54,16 @@ export default {
           address: '南京'
         }
       ],
-      resultList: []
+      resultList: [],
+      // 类型二
+      queries: ['birds', 'scatt'],
+      description: 'Tropical birds scattered as Drake veered the Jeep <html>sffsd</html>',
+      str: 'Http version 1.0 name'
     }
   },
   mounted() {
     this.resultList = _.cloneDeep(this.deviceList);
+    this.heightLight(this.str, 'h');
   },
   methods: {
     search () {
@@ -61,6 +80,13 @@ export default {
       } else {
         return val
       }
+    },
+    heightLight(string, keyword) {
+      const reg = new RegExp(keyword, 'gi');
+      string = string.replace(reg, function(txt){
+          return `<font color='#F56C6C'>${txt}</font>`;
+      })
+      this.str = string;
     }
   }
 }
