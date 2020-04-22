@@ -55,6 +55,12 @@ export default {
               title: 'Dashbord2',
               url: '/dashbord/dash2',
               icon: 'icon-address'
+            },
+            {
+              hasNode: false,
+              title: 'File',
+              url: '/dashbord/file',
+              icon: 'icon-address'
             }
           ]
         },

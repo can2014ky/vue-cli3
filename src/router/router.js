@@ -38,6 +38,14 @@ export default [
         meta: {
           name: 'dashbord2'
         }
+      },
+      {
+        path: 'file',
+        name: 'File',
+        component: () => import(/* webpackChunkName: "dashbord" */ '@/views/dashbord/File.vue'),
+        meta: {
+          name: 'file'
+        }
       }
     ]
   },
