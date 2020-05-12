@@ -10,6 +10,14 @@ import './assets/css/reset.css'
 
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
+
+import VueHighcharts from 'vue-highcharts';
+import Highcharts from 'highcharts';
+import loadHighchartsMore from 'highcharts/highcharts-more.js';
+Vue.use(VueHighcharts, { Highcharts });
+loadHighchartsMore(Highcharts);
+
+
 Vue.use(Button)
 Vue.use(Menu)
 Vue.use(Submenu)

@@ -56,8 +56,8 @@ export default {
       ],
       resultList: [],
       // 类型二
-      queries: ['birds', 'scatt'],
-      description: 'Tropical birds scattered as Drake veered the Jeep <html>sffsd</html>',
+      queries: ['birds', 'scatt', '<H3>'],
+      description: '<h3>Tropical</h3> birds scattered as Drake veered the Jeep <html>sffsd</html>',
       str: 'Http version 1.0 name'
     }
   },
