@@ -14,6 +14,7 @@ import 'mavon-editor/dist/css/index.css'
 import VueHighcharts from 'vue-highcharts';
 import Highcharts from 'highcharts';
 import loadHighchartsMore from 'highcharts/highcharts-more.js';
+// import xss from 'xss';
 Vue.use(VueHighcharts, { Highcharts });
 loadHighchartsMore(Highcharts);
 
@@ -36,6 +37,7 @@ Vue.use(Tag)
 Vue.prototype.$message = Message;
 // use
 Vue.use(mavonEditor)
+// Vue.prototype.xss = xss;
 
 
 Vue.config.productionTip = false
